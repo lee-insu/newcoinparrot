@@ -1,6 +1,6 @@
 import type { NextPage } from 'next';
 import Coinroluette from '../components/Coinroluette';
-import Nav from '../components/nav';
+import Nav from '../components/Nav';
 import styles from '../styles/Home.module.css';
 
 const Home: NextPage = () => {

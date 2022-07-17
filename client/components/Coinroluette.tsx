@@ -5,6 +5,7 @@ const Coinroluette = () => {
   return (
     <div>
       <CoinImage />
+      
     </div>
   );
 };
