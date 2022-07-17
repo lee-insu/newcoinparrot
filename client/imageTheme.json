@@ -1,0 +1,26 @@
+[
+  {
+    "theme": "parrot",
+    "start": "start-parrot",
+    "loading": "loading-parrot",
+    "result": "result-parrot"
+  },
+  {
+    "theme": "musk",
+    "start": "start-musk",
+    "loading": "loading-musk",
+    "result": "result-musk"
+  },
+  {
+    "theme": "doge",
+    "start": "start-doge",
+    "loading": "loading-doge",
+    "result": "result-doge"
+  },
+  {
+    "theme": "rabbit",
+    "start": "start-rabbit",
+    "loading": "loading-rabbit",
+    "result": "result-rabbit"
+  }
+]
