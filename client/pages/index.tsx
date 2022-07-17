@@ -1,5 +1,5 @@
 import type { NextPage } from 'next';
-import Coinroluette from '../components/Coinroluette';
+import CoinSelect from '../components/CoinSelect';
 import Nav from '../components/Nav';
 import styles from '../styles/Home.module.css';
 
@@ -12,11 +12,8 @@ const Home: NextPage = () => {
         </header>
         <main>
           <section>
-            <Coinroluette />
-            <div>select_Coin_image</div>
-            <footer>responsive</footer>
+            <CoinSelect />
           </section>
-          <section>chart</section>
         </main>
         <footer>footer</footer>
       </div>

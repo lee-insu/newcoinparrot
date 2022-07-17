@@ -4,13 +4,17 @@ import { KrwMarkets } from '../types';
 import { Skin } from '../types';
 import imageTheme from '../imageTheme.json';
 
-const CoinImage = () => {
+const CoinSelect = () => {
   const [tradePrice, getTradePrice] = useState<number>();
   const [tradeChange, getTradeChange] = useState<string>('');
   const [changeRate, getChangeRate] = useState<string>('');
   const [handleSkin, handleChangeSkin] = useState<Skin>();
   const [krwMarket, getKrwMarket] = useState<KrwMarkets>([]);
   const [coinName, getCoinName] = useState<string>('');
+
+  const [start, handleStart] = useState<boolean>(true);
+  const [loading, handleLoading] = useState<boolean>(false);
+  const [result, handleResult] = useState<boolean>(false);
 
   const handleChangeOption = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const {
@@ -22,10 +26,19 @@ const CoinImage = () => {
         value == theme.theme ? handleChangeSkin(theme) : null;
       });
     }
+    handleStart(true);
+    handleLoading(false);
+    handleResult(false);
+    getTradePrice(undefined);
+    getTradeChange('');
+    getCoinName('');
   };
 
-  const playAction = async () => {
-    if (krwMarket) {
+  const playAction = () => {
+    result ? handleResult(false) : handleResult(false);
+    handleStart(false);
+    handleLoading(true);
+    setTimeout(async () => {
       const selected = krwMarket[Math.floor(Math.random() * krwMarket.length)];
 
       await axios
@@ -36,9 +49,9 @@ const CoinImage = () => {
           getTradeChange(res.data[0].change);
           getChangeRate((res.data[0].signed_change_rate * 100).toFixed(2));
         });
-    } else {
-      alert('홈페이지를 새로 고쳐주세요');
-    }
+      handleLoading(false);
+      handleResult(true);
+    }, 1000);
   };
 
   useEffect(() => {
@@ -59,11 +72,23 @@ const CoinImage = () => {
       <div className="mx-auto my-0 w-full text-center">
         {handleSkin == undefined ? (
           <div>
-            <div>{imageTheme[0].start}</div>
+            {start ? (
+              <div>{imageTheme[0].start}</div>
+            ) : loading ? (
+              <div>{imageTheme[0].loading}</div>
+            ) : (
+              <div>{imageTheme[0].result}</div>
+            )}
           </div>
         ) : (
           <div>
-            <div>{handleSkin.start}</div>
+            {start ? (
+              <div>{handleSkin.start}</div>
+            ) : loading ? (
+              <div>{handleSkin.loading}</div>
+            ) : (
+              <div>{handleSkin.result}</div>
+            )}
           </div>
         )}
       </div>
@@ -110,4 +135,4 @@ const CoinImage = () => {
   );
 };
 
-export default CoinImage;
+export default CoinSelect;
