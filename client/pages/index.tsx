@@ -1,5 +1,6 @@
 import type { NextPage } from 'next';
 import CoinSelect from '../components/CoinSelect';
+import Footer from '../components/Footer';
 import Nav from '../components/Nav';
 import styles from '../styles/Home.module.css';
 
@@ -15,7 +16,7 @@ const Home: NextPage = () => {
             <CoinSelect />
           </section>
         </main>
-        <footer>footer</footer>
+        <Footer />
       </div>
     </div>
   );

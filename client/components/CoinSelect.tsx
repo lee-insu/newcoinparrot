@@ -68,8 +68,8 @@ const CoinSelect = () => {
 
   // 스토리: 이미지가 보인다. 랜덤을 돌릴 수 있는 기능이 있다. 클릭하면 이미지가 다음으로 넘어간다. ( 그 이미지는 고정, 랜덤이미지, 결과 총 3장) 결과는 4초 뒤 코인과 가격이 보인다. (업비트 기준) 코인을 돌릴 수 있는 스킨 기능이 있다.
   return (
-    <div className="w-2/3 mx-auto my-0 py-20 bg-blue-200">
-      <div className="mx-auto my-0 w-full text-center">
+    <div className="w-2/3 mx-auto my-0">
+      <div className="mx-auto my-0 w-full h-80 py-40 text-center">
         {handleSkin == undefined ? (
           <div>
             {start ? (
@@ -92,45 +92,56 @@ const CoinSelect = () => {
           </div>
         )}
       </div>
-      <div className="w-full bg-pink-200">
+      <div className="w-full font-2">
         {tradeChange && tradePrice && changeRate && coinName ? (
           <div className="w-full mx-auto my-auto text-center">
-            <div>{coinName}</div>
+            <h1 className="text-4xl font-semibold">{coinName}</h1>
 
             <div>
               {tradeChange == 'RISE' ? (
-                <div className="bg-red-400">
-                  <p>{tradePrice}</p>
-                  <p>+{changeRate}</p>
+                <div className="py-2 text-red-500">
+                  <p className="text-2xl font-semibold">{tradePrice}원</p>
+                  <p>+{changeRate}%</p>
                 </div>
               ) : tradeChange == 'FALL' ? (
-                <div className="bg-blue-400">
-                  <p>{tradePrice}</p>
-                  <p>{changeRate}</p>
+                <div className="py-2 text-blue-500">
+                  <p className="text-2xl font-semibold">{tradePrice}원</p>
+                  <p>{changeRate}%</p>
                 </div>
               ) : (
-                <div className="bg-gray-400">
-                  <p>{tradePrice}</p>
-                  <p>{changeRate}</p>
+                <div className="py-2 text-gray-500">
+                  <p className="text-2xl font-semibold">{tradePrice}원</p>
+                  <p>{changeRate}%</p>
                 </div>
               )}
             </div>
           </div>
         ) : null}
       </div>
-      <button onClick={playAction} className="w-full my-0 mx-auto">
-        신탁 받기
-      </button>
-      <select
-        name="skin"
-        className="w-full py-5"
-        onChange={(e) => handleChangeOption(e)}
+      <button
+        onClick={playAction}
+        className="w-full h-full my-4 mx-auto py-4 text-lg rounded-lg bg-blue-400 font-bold text-white"
       >
-        <option value="parrot">앵무새</option>
-        <option value="doge">도지</option>
-        <option value="musk">머스크</option>
-        <option value="rabbit">토끼</option>
-      </select>
+        {start
+          ? '신탁 받기'
+          : loading
+          ? '신탁을 받는 중...'
+          : result
+          ? '한..한 번만 더요!'
+          : null}
+      </button>
+      <div className="w-full my-4 flex justify-center">
+        <select
+          name="skin"
+          className="w-2/3 text-center p-1 border-2 rounded-lg"
+          onChange={(e) => handleChangeOption(e)}
+        >
+          <option value="parrot">앵무새</option>
+          <option value="doge">도지</option>
+          <option value="musk">머스크</option>
+          <option value="rabbit">토끼</option>
+        </select>
+      </div>
     </div>
   );
 };
