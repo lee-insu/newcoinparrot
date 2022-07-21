@@ -45,13 +45,13 @@ const CoinSelect = () => {
         .get(`https://api.upbit.com/v1/ticker?markets=${selected.market}`)
         .then((res) => {
           getCoinName(selected.korean_name);
-          getTradePrice(res.data[0].trade_price);
+          getTradePrice(res.data[0].trade_price.toLocaleString('ko-KR'));
           getTradeChange(res.data[0].change);
           getChangeRate((res.data[0].signed_change_rate * 100).toFixed(2));
         });
       handleLoading(false);
       handleResult(true);
-    }, 1000);
+    }, 1100);
   };
 
   useEffect(() => {
