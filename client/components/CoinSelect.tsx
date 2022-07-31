@@ -270,8 +270,6 @@ const CoinSelect = () => {
         >
           <option value="parrot">앵무새</option>
           <option value="doge">도지</option>
-          <option value="musk">머스크</option>
-          <option value="rabbit">토끼</option>
         </select>
       </div>
     </div>

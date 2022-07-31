@@ -7,24 +7,10 @@
     "result": "/image/업비트2.jpeg"
   },
   {
-    "theme": "musk",
-    "name": "나불 머스크",
-    "start": "start-musk",
-    "loading": "loading-musk",
-    "result": "result-musk"
-  },
-  {
     "theme": "doge",
     "name": "맛간 도지",
-    "start": "start-doge",
-    "loading": "loading-doge",
-    "result": "result-doge"
-  },
-  {
-    "theme": "rabbit",
-    "name": "마약 토끼",
-    "start": "start-rabbit",
-    "loading": "loading-rabbit",
-    "result": "result-rabbit"
+    "start": "/image/doge.jpg",
+    "loading": "/image/dogedance.gif",
+    "result": "/image/dogecho.jpg"
   }
 ]
