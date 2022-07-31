@@ -78,7 +78,7 @@ const Modal = () => {
                     onClick={() => setOpen(false)}
                     ref={cancelButtonRef}
                   >
-                    Cancel
+                    닫기
                   </button>
                 </div>
               </Dialog.Panel>

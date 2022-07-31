@@ -137,7 +137,7 @@ const CoinSelect = () => {
                         onClick={() => setOpen(false)}
                         ref={cancelButtonRef}
                       >
-                        Cancel
+                        닫기
                       </button>
                     </div>
                   </Dialog.Panel>
@@ -152,22 +152,31 @@ const CoinSelect = () => {
           <div>
             {start ? (
               <div>
-                <img className="w-auto" src={imageTheme[0].start}></img>
-                <p className="text-xl font-semibold mt-10">
+                <img
+                  className="w-auto mx-auto my-0"
+                  src={imageTheme[0].start}
+                ></img>
+                <p className="text-xl font-gmarket font-medium mt-10">
                   {imageTheme[0].name}에게 신탁을 받으세요..
                 </p>
               </div>
             ) : loading ? (
               <div>
-                <img src={imageTheme[0].loading}></img>
-                <p className="text-xl font-semibold mt-10">
+                <img
+                  className="w-auto mx-auto my-0"
+                  src={imageTheme[0].loading}
+                ></img>
+                <p className="text-xl font-gmarket font-medium mt-10">
                   신탁을 내리는 중...
                 </p>
               </div>
             ) : (
               <div>
-                <img src={imageTheme[0].result}></img>
-                <p className="text-xl font-semibold mt-10">
+                <img
+                  className="w-auto mx-auto my-0"
+                  src={imageTheme[0].result}
+                ></img>
+                <p className="text-xl font-gmarket font-medium mt-10">
                   당신에게 내린 미친 신탁은?
                 </p>
               </div>
@@ -177,22 +186,31 @@ const CoinSelect = () => {
           <div>
             {start ? (
               <div>
-                <img className="w-auto" src={handleSkin.start}></img>
-                <p className="text-xl font-semibold mt-10">
+                <img
+                  className="w-auto mx-auto my-0"
+                  src={handleSkin.start}
+                ></img>
+                <p className="text-xl font-gmarket font-medium mt-10">
                   {handleSkin.name}에게 신탁을 받으세요..
                 </p>
               </div>
             ) : loading ? (
               <div>
-                <img src={handleSkin.loading}></img>
-                <p className="text-xl font-semibold mt-10">
+                <img
+                  className="w-auto mx-auto my-0"
+                  src={handleSkin.loading}
+                ></img>
+                <p className="text-xl font-gmarket font-medium mt-10">
                   신탁을 내리는 중...
                 </p>
               </div>
             ) : (
               <div>
-                <img src={handleSkin.result}></img>
-                <p className="text-xl font-semibold mt-10">
+                <img
+                  className="w-auto mx-auto my-0"
+                  src={handleSkin.result}
+                ></img>
+                <p className="text-xl font-gmarket font-medium mt-10">
                   당신에게 내린 미친 신탁은?
                 </p>
               </div>
@@ -203,22 +221,28 @@ const CoinSelect = () => {
       <div className="w-full font-2">
         {tradeChange && tradePrice && changeRate && coinName ? (
           <div className="w-full mx-auto my-auto text-center">
-            <h1 className="text-4xl font-semibold">{coinName}</h1>
+            <h1 className="text-4xl font-gmarket font-semibold">{coinName}</h1>
 
             <div>
               {tradeChange == 'RISE' ? (
                 <div className="py-2 text-red-500">
-                  <p className="text-2xl font-semibold">{tradePrice}원</p>
+                  <p className="text-2xl font-gamrket font-medium">
+                    {tradePrice}원
+                  </p>
                   <p>+{changeRate}%</p>
                 </div>
               ) : tradeChange == 'FALL' ? (
                 <div className="py-2 text-blue-500">
-                  <p className="text-2xl font-semibold">{tradePrice}원</p>
+                  <p className="text-2xl font-gamrket font-medium">
+                    {tradePrice}원
+                  </p>
                   <p>{changeRate}%</p>
                 </div>
               ) : (
                 <div className="py-2 text-gray-500">
-                  <p className="text-2xl font-semibold">{tradePrice}원</p>
+                  <p className="text-2xl font-gamrket font-medium">
+                    {tradePrice}원
+                  </p>
                   <p>{changeRate}%</p>
                 </div>
               )}
@@ -228,7 +252,7 @@ const CoinSelect = () => {
       </div>
       <button
         onClick={playAction}
-        className="w-full h-full my-4 mx-auto py-4 text-lg rounded-lg bg-blue-400 font-bold text-white"
+        className="w-full h-full font-gmarket font-semibold my-4 mx-auto py-4 text-lg rounded-lg bg-blue-400 font-bold text-white"
       >
         {start
           ? `신탁 받기`

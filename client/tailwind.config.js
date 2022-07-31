@@ -4,7 +4,12 @@ module.exports = {
     './components/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        cookierun: ['cookierun'],
+        gmarket: ['gmarket'],
+      },
+    },
   },
   plugins: [],
 };

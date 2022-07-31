@@ -18,3 +18,34 @@ a {
 * {
   box-sizing: border-box;
 }
+
+@font-face {
+  font-family: cookierun;
+  font-weight: bold;
+  src: url('/fonts/CookieRun Bold.ttf');
+}
+@font-face {
+  font-family: cookierun;
+  font-weight: black;
+  src: url('/fonts/CookieRun Black.ttf');
+}
+@font-face {
+  font-family: cookierun;
+  font-weight: regular;
+  src: url('/fonts/CookieRun Regular.ttf');
+}
+@font-face {
+  font-family: gmarket;
+  font-weight: light;
+  src: url('/fonts/GmarketSansTTFLight.ttf');
+}
+@font-face {
+  font-family: gmarket;
+  font-weight: bold;
+  src: url('/fonts/GmarketSansTTFBold.ttf');
+}
+@font-face {
+  font-family: gmarket;
+  font-weight: medium;
+  src: url('/fonts/GmarketSansTTFMedium.ttf');
+}
