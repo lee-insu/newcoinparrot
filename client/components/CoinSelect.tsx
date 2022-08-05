@@ -5,6 +5,8 @@ import { Skin } from '../types';
 import imageTheme from '../imageTheme.json';
 import { Dialog, Transition } from '@headlessui/react';
 import { ExclamationIcon } from '@heroicons/react/outline';
+import { analytics } from '../service/firebase';
+import { logEvent } from 'firebase/analytics';
 
 const CoinSelect = () => {
   const [tradePrice, getTradePrice] = useState<number>();
@@ -31,6 +33,9 @@ const CoinSelect = () => {
         value == theme.theme ? handleChangeSkin(theme) : null;
       });
     }
+    logEvent(analytics, 'select_character', {
+      content_type: 'click',
+    });
     handleStart(true);
     handleLoading(false);
     handleResult(false);
@@ -62,7 +67,7 @@ const CoinSelect = () => {
 
   useEffect(() => {
     if (result) {
-      setOpen(true);
+      // setOpen(true);
     }
     return () => {
       axios.get('https://api.upbit.com/v1/market/all').then((res) => {
