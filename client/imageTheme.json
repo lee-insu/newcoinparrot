@@ -12,5 +12,12 @@
     "start": "/image/doge.jpg",
     "loading": "/image/dogedance.gif",
     "result": "/image/dogecho.jpg"
+  },
+  {
+    "theme": "musk",
+    "name": "실성한 머스크",
+    "start": "/image/musk.jpg",
+    "loading": "/image/musk_moving.gif",
+    "result": "/image/musk_result.jpg"
   }
 ]

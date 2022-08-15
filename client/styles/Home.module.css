@@ -1,12 +1,12 @@
 .container {
   width: 100vw;
-  height: 100vh;
+  height: auto;
   background-color: rgb(202, 202, 202);
 }
 
 .main {
   width: 640px;
-  height: 100vh;
+  height: auto;
   margin: 0 auto;
   background-color: #fff;
 }

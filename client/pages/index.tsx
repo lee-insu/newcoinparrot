@@ -7,7 +7,7 @@ import styles from '../styles/Home.module.css';
 const Home: NextPage = () => {
   return (
     <div className={styles.container}>
-      <div className="md:w-screen lg:w-[640px] xl:w-[640px] h-screen bg-white m-auto">
+      <div className="md:w-screen lg:w-[640px] xl:w-[640px] h-auto bg-white m-auto">
         <header>
           <Nav />
         </header>

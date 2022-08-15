@@ -33,15 +33,19 @@ const CoinSelect = () => {
         value == theme.theme ? handleChangeSkin(theme) : null;
       });
     }
-    logEvent(analytics, 'select_character', {
-      content_type: 'click',
-    });
     handleStart(true);
     handleLoading(false);
     handleResult(false);
     getTradePrice(undefined);
     getTradeChange('');
     getCoinName('');
+    if (value == 'parrot') {
+      logEvent(analytics, 'RD_Change_Parrot');
+    } else if (value == 'doge') {
+      logEvent(analytics, 'RD_Change_Doge');
+    } else if (value == 'musk') {
+      logEvent(analytics, 'RD_Change_Musk');
+    }
   };
 
   const playAction = () => {
@@ -62,6 +66,7 @@ const CoinSelect = () => {
         });
       handleLoading(false);
       handleResult(true);
+      logEvent(analytics, 'RD_Click_Roulette');
     }, 1100);
   };
 
@@ -275,6 +280,7 @@ const CoinSelect = () => {
         >
           <option value="parrot">앵무새</option>
           <option value="doge">도지</option>
+          <option value="musk">일론 머스크</option>
         </select>
       </div>
     </div>
