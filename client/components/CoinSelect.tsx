@@ -21,6 +21,7 @@ const CoinSelect = () => {
   const [result, handleResult] = useState<boolean>(false);
 
   const [open, setOpen] = useState(false);
+  const [adCount, setAdCount] = useState<number>(0);
   const cancelButtonRef = useRef(null);
 
   const handleChangeOption = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -53,6 +54,7 @@ const CoinSelect = () => {
     handleStart(false);
     handleLoading(true);
     getCoinName('');
+    setAdCount(adCount + 1);
     setTimeout(async () => {
       const selected = krwMarket[Math.floor(Math.random() * krwMarket.length)];
 
@@ -72,6 +74,10 @@ const CoinSelect = () => {
 
   useEffect(() => {
     if (result) {
+      if (adCount % 3 === 0) {
+        setOpen(true);
+      }
+
       // setOpen(true);
     }
     return () => {
@@ -157,7 +163,7 @@ const CoinSelect = () => {
           </Dialog>
         </Transition.Root>
       ) : null}
-      <div className="mx-auto my-0 w-full h-auto py-10 text-center">
+      <div className="mx-auto my-0 w-full h-auto py-5 text-center">
         {handleSkin == undefined ? (
           <div>
             {start ? (
