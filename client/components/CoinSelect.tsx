@@ -139,6 +139,23 @@ const CoinSelect = () => {
                           >
                             타이틀
                           </Dialog.Title> */}
+                          <div className="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+                            <button
+                              type="button"
+                              className="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
+                              onClick={() => setOpen(false)}
+                              ref={cancelButtonRef}
+                            >
+                              닫기
+                            </button>
+                            <p className="text-sm text-center font-semibold text-blue-500">
+                              코무새 밥값 벌기
+                            </p>
+                            <p className="text-sm text-center text-gray-500">
+                              이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에
+                              따른 일정액의 수수료를 제공받습니다.
+                            </p>
+                          </div>
                           <div className="mt-2">
                             <iframe
                               className="text-center"
@@ -149,26 +166,9 @@ const CoinSelect = () => {
                               scrolling="no"
                               referrerPolicy="unsafe-url"
                             ></iframe>
-                            <p className="text-sm text-center font-semibold text-gray-500">
-                              코무새 밥값 벌기
-                            </p>
-                            <p className="text-sm text-center text-gray-500">
-                              이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에
-                              따른 일정액의 수수료를 제공받습니다.
-                            </p>
                           </div>
                         </div>
                       </div>
-                    </div>
-                    <div className="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-                      <button
-                        type="button"
-                        className="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
-                        onClick={() => setOpen(false)}
-                        ref={cancelButtonRef}
-                      >
-                        닫기
-                      </button>
                     </div>
                   </Dialog.Panel>
                 </Transition.Child>
