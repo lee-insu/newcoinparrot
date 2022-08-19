@@ -7,6 +7,7 @@ import { Dialog, Transition } from '@headlessui/react';
 import { ExclamationIcon } from '@heroicons/react/outline';
 import { analytics } from '../service/firebase';
 import { logEvent } from 'firebase/analytics';
+import Script from 'next/script';
 
 const CoinSelect = () => {
   const [tradePrice, getTradePrice] = useState<number>();
@@ -77,8 +78,6 @@ const CoinSelect = () => {
       if (adCount % 3 === 0) {
         setOpen(true);
       }
-
-      // setOpen(true);
     }
     return () => {
       axios.get('https://api.upbit.com/v1/market/all').then((res) => {
@@ -127,21 +126,36 @@ const CoinSelect = () => {
                   <Dialog.Panel className="relative bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:max-w-lg sm:w-full">
                     <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                       <div className="sm:flex sm:items-start">
-                        <div className="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
+                        {/* <div className="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
                           <ExclamationIcon
                             className="h-6 w-6 text-red-600"
                             aria-hidden="true"
                           />
-                        </div>
+                        </div> */}
                         <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
-                          <Dialog.Title
+                          {/* <Dialog.Title
                             as="h3"
                             className="text-lg leading-6 font-medium text-gray-900"
                           >
                             타이틀
-                          </Dialog.Title>
+                          </Dialog.Title> */}
                           <div className="mt-2">
-                            <p className="text-sm text-gray-500">세부내용</p>
+                            <iframe
+                              className="text-center"
+                              src="https://ads-partners.coupang.com/widgets.html?id=601502&template=carousel&trackingCode=AF8336603&subId=&width=400&height=400"
+                              width="400"
+                              height="400"
+                              frameBorder="0"
+                              scrolling="no"
+                              referrerPolicy="unsafe-url"
+                            ></iframe>
+                            <p className="text-sm text-center font-semibold text-gray-500">
+                              코무새 밥값 벌기
+                            </p>
+                            <p className="text-sm text-center text-gray-500">
+                              이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에
+                              따른 일정액의 수수료를 제공받습니다.
+                            </p>
                           </div>
                         </div>
                       </div>

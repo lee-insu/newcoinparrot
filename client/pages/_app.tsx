@@ -1,6 +1,7 @@
 import '../styles/globals.css';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
+import Script from 'next/script';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -15,6 +16,12 @@ function MyApp({ Component, pageProps }: AppProps) {
           content="width=device-width,initial-scale=1,user-scalable=no"
         ></meta>
       </Head>
+
+      <Script
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9594488126161061"
+        strategy="beforeInteractive"
+        crossOrigin="anonymous"
+      ></Script>
       <Component {...pageProps} />
     </>
   );
