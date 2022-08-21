@@ -71,11 +71,11 @@ const CoinSelect = () => {
   };
 
   useEffect(() => {
-    if (result) {
-      if (adCount % 3 === 0) {
-        router.push('/ad');
-      }
-    }
+    // if (result) {
+    //   if (adCount % 3 === 0) {
+    //     router.push('/ad');
+    //   }
+    // }
     return () => {
       axios.get('https://api.upbit.com/v1/market/all').then((res) => {
         const market = res.data.map((li: any) => li);
