@@ -8,6 +8,7 @@ import { ExclamationIcon } from '@heroicons/react/outline';
 import { analytics } from '../service/firebase';
 import { logEvent } from 'firebase/analytics';
 import Script from 'next/script';
+import { AdBig } from './Ad';
 
 const CoinSelect = () => {
   const [tradePrice, getTradePrice] = useState<number>();
@@ -75,9 +76,9 @@ const CoinSelect = () => {
 
   useEffect(() => {
     if (result) {
-      if (adCount % 3 === 0) {
-        setOpen(true);
-      }
+      // if (adCount % 3 === 0) {
+      //   setOpen(true);
+      // }
     }
     return () => {
       axios.get('https://api.upbit.com/v1/market/all').then((res) => {
@@ -151,21 +152,10 @@ const CoinSelect = () => {
                             <p className="text-sm text-center font-semibold text-blue-500">
                               코무새 밥값 벌기
                             </p>
-                            <p className="text-sm text-center text-gray-500">
-                              이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에
-                              따른 일정액의 수수료를 제공받습니다.
-                            </p>
                           </div>
-                          <div className="mt-2">
-                            <iframe
-                              className="text-center"
-                              src="https://ads-partners.coupang.com/widgets.html?id=601502&template=carousel&trackingCode=AF8336603&subId=&width=400&height=400"
-                              width="400"
-                              height="400"
-                              frameBorder="0"
-                              scrolling="no"
-                              referrerPolicy="unsafe-url"
-                            ></iframe>
+                          <AdBig />
+                          <div className="mt-2 w-auto h-auto">
+                            <AdBig />
                           </div>
                         </div>
                       </div>
