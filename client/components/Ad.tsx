@@ -25,8 +25,8 @@ export const AdBig = () => {
     const classname = {
       className: 'kakao_ad_area',
       style: { display: 'none', width: '100%' },
-      'data-ad-width': '300',
-      'data-ad-height': '250',
+      'data-ad-width': '400',
+      'data-ad-height': '400',
       'data-ad-unit': 'DAN-1Weuw8p6LODbAmRg',
     };
 
