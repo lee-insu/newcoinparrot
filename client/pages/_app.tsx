@@ -2,8 +2,12 @@ import '../styles/globals.css';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import Script from 'next/script';
+import styles from '../styles/Home.module.css';
+import Nav from '../components/Nav';
+import { useRouter } from 'next/router';
 
 function MyApp({ Component, pageProps }: AppProps) {
+
   return (
     <>
       <Head>
@@ -30,7 +34,15 @@ function MyApp({ Component, pageProps }: AppProps) {
         src="//t1.daumcdn.net/kas/static/ba.min.js"
         strategy="lazyOnload"
       ></Script>
-      <Component {...pageProps} />
+      <div className={styles.container}>
+        <div className="md:w-screen lg:w-[640px] xl:w-[640px] h-auto bg-white m-auto">
+          <header>
+            <Nav />
+          </header>
+
+          <Component {...pageProps} />
+        </div>
+      </div>
     </>
   );
 }

@@ -13,3 +13,10 @@ export interface Skin {
   loading: string;
   result: string;
 }
+
+export interface MarketContents {
+  market: string;
+  title: string;
+  sub: string;
+  img: string;
+}
