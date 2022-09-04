@@ -2,7 +2,12 @@ import React from 'react';
 import CoinContents from './CoinContents';
 
 const contents = [
-  { market: 'bitcoin', title: '비트코인', sub: '울랄랄라', img: 'url' },
+  {
+    market: 'bitcoin',
+    title: '비트코인',
+    sub: '울랄랄라',
+    img: '/image/bitcoin.png',
+  },
   { market: 'market', title: 'title', sub: 'sub', img: 'url' },
   { market: 'market', title: 'title', sub: 'sub', img: 'url' },
   { market: 'market', title: 'title', sub: 'sub', img: 'url' },
