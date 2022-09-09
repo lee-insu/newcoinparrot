@@ -22,6 +22,11 @@ const CoinSelect = () => {
   const [adCount, setAdCount] = useState<number>(0);
   const router = useRouter();
 
+  const DemandRsi = () => {
+    logEvent(analytics, 'Demand_Coin_Rsi');
+    alert('과매수, 과매도 정보가 잠시 보강중이에요🥹');
+  };
+
   const handleChangeOption = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const {
       target: { value },
@@ -188,6 +193,12 @@ const CoinSelect = () => {
                   <p>{changeRate}%</p>
                 </div>
               )}
+            </div>
+            <div
+              onClick={DemandRsi}
+              className="cursor-pointer py-2 font-gmarket font-medium text-gray-700 border-2 border-gray-200 rounded-lg"
+            >
+              {coinName}의 과매수, 과매도 상태는?
             </div>
           </div>
         ) : null}
