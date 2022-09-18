@@ -1,7 +1,29 @@
-import React from 'react';
+import { useRouter } from 'next/router';
+import { totalmem } from 'os';
+import React, { useEffect, useState } from 'react';
 
 const CoinContent = ({ item }: any) => {
-  return <div>{item}</div>;
+  const router = useRouter();
+  const [content, setContent] = useState<any>();
+
+  useEffect(() => {
+    return () => {
+      setContent(router.query);
+    };
+  }, []);
+
+  return (
+    <div>
+      {content ? (
+        <>
+          <div>{content.title}</div>
+          <img src={content.img} />
+          <strong>{content.sub}</strong>
+          <p>{content.text}</p>
+        </>
+      ) : null}
+    </div>
+  );
 };
 
 export default CoinContent;

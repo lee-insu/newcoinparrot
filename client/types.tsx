@@ -18,5 +18,6 @@ export interface MarketContents {
   market: string;
   title: string;
   sub: string;
+  text: string;
   img: string;
 }

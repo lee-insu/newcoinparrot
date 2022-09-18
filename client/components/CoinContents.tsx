@@ -11,7 +11,18 @@ const CoinContents = (contents: MarketContents) => {
   };
 
   return (
-    <Link href={`/information/${contents.market}`}>
+    <Link
+      href={{
+        pathname: `/information/${contents.market}`,
+        query: {
+          market: contents.market,
+          title: contents.title,
+          sub: contents.sub,
+          text: contents.text,
+          img: contents.img,
+        },
+      }}
+    >
       <li className="group cursor-pointer">
         <div className="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-white drop-shadow-sm  xl:aspect-w-7 xl:aspect-h-8">
           <div

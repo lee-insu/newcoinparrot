@@ -1,28 +1,6 @@
 import React from 'react';
 import CoinContents from './CoinContents';
 
-const contents = [
-  {
-    market: 'bitcoin',
-    title: '비트코인',
-    sub: '울랄랄라',
-    img: '/image/bitcoin.png',
-  },
-  { market: 'market', title: 'title', sub: 'sub', img: 'url' },
-  { market: 'market', title: 'title', sub: 'sub', img: 'url' },
-  { market: 'market', title: 'title', sub: 'sub', img: 'url' },
-  { market: 'market', title: 'title', sub: 'sub', img: 'url' },
-  { market: 'market', title: 'title', sub: 'sub', img: 'url' },
-  { market: 'market', title: 'title', sub: 'sub', img: 'url' },
-  { market: 'market', title: 'title', sub: 'sub', img: 'url' },
-  { market: 'market', title: 'title', sub: 'sub', img: 'url' },
-  { market: 'market', title: 'title', sub: 'sub', img: 'url' },
-  { market: 'market', title: 'title', sub: 'sub', img: 'url' },
-  { market: 'market', title: 'title', sub: 'sub', img: 'url' },
-  { market: 'market', title: 'title', sub: 'sub', img: 'url' },
-  { market: 'market', title: 'title', sub: 'sub', img: 'url' },
-];
-
 const CoinList = () => {
   return (
     <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
@@ -33,6 +11,7 @@ const CoinList = () => {
             market={content.market}
             title={content.title}
             sub={content.sub}
+            text={content.text}
             img={content.img}
           />
         ))}
@@ -42,3 +21,15 @@ const CoinList = () => {
 };
 
 export default CoinList;
+
+const contents = [
+  {
+    market: 'bitcoin',
+    title: '비트코인',
+    sub: '울랄랄라',
+    text: 'text',
+    img: '/image/bitcoin.png',
+  },
+  { market: 'market', title: 'title', sub: 'sub', text: 'text', img: 'url' },
+  { market: 'market', title: 'title', sub: 'sub', text: 'text', img: 'url' },
+];
