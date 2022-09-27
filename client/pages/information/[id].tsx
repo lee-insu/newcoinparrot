@@ -1,5 +1,4 @@
 import { useRouter } from 'next/router';
-import { totalmem } from 'os';
 import React, { useEffect, useState } from 'react';
 
 const CoinContent = ({ item }: any) => {

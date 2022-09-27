@@ -69,6 +69,15 @@ const CoinSelect = () => {
           getTradeChange(res.data[0].change);
           getChangeRate((res.data[0].signed_change_rate * 100).toFixed(2));
         });
+      axios({
+        method: 'post',
+        url: 'http://127.0.0.1:5000/',
+        data: {
+          coin: selected.market,
+        },
+      }).then((response) => {
+        console.log(response.data);
+      });
       handleLoading(false);
       handleResult(true);
       logEvent(analytics, 'RD_Click_Roulette');
