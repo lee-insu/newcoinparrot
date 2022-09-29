@@ -14,6 +14,8 @@ const CoinSelect = () => {
   const [handleSkin, handleChangeSkin] = useState<Skin>();
   const [krwMarket, getKrwMarket] = useState<KrwMarkets>([]);
   const [coinName, getCoinName] = useState<string>('');
+  const [rsiPercent, getRsiPercent] = useState<string>('');
+  const [rsiText, getRsiText] = useState<string>('');
 
   const [start, handleStart] = useState<boolean>(true);
   const [loading, handleLoading] = useState<boolean>(false);
@@ -21,11 +23,6 @@ const CoinSelect = () => {
 
   const [adCount, setAdCount] = useState<number>(0);
   const router = useRouter();
-
-  const DemandRsi = () => {
-    logEvent(analytics, 'Demand_Coin_Rsi');
-    alert('과매수, 과매도 정보가 잠시 보강중이에요🥹');
-  };
 
   const handleChangeOption = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const {
@@ -69,15 +66,16 @@ const CoinSelect = () => {
           getTradeChange(res.data[0].change);
           getChangeRate((res.data[0].signed_change_rate * 100).toFixed(2));
         });
-      axios({
-        method: 'post',
-        url: 'http://127.0.0.1:5000/',
-        data: {
+      await axios
+        .post('http://127.0.0.1:5000/', {
           coin: selected.market,
-        },
-      }).then((response) => {
-        console.log(response.data);
-      });
+        })
+        .then((res) => {
+          getRsiPercent(res.data[0]);
+          getRsiText(res.data[1]);
+        })
+        .then((err) => console.log(err));
+
       handleLoading(false);
       handleResult(true);
       logEvent(analytics, 'RD_Click_Roulette');
@@ -203,11 +201,18 @@ const CoinSelect = () => {
                 </div>
               )}
             </div>
-            <div
-              onClick={DemandRsi}
-              className="cursor-pointer py-2 font-gmarket font-medium text-gray-700 border-2 border-gray-200 rounded-lg"
-            >
-              {coinName}의 과매수, 과매도 상태는?
+            <div className=" py-2 font-gmarket font-medium border-2 border-gray-200 rounded-lg">
+              <p className="text-gray-500 text-sm">
+                14일 기준 RSI (과매수,과매도) 지수
+              </p>
+              <p className="text-black-800 text-2xl py-1">{rsiPercent}</p>
+              {rsiText && rsiText == '중립' ? (
+                <p className="text-black-400">뜨겁지도 차갑지도 않다.</p>
+              ) : rsiText == '과매도' ? (
+                <p className="text-blue-400">개같이 파는 중!!</p>
+              ) : rsiText == '과매수' ? (
+                <p className="text-red-400">개같이 사는 중!!</p>
+              ) : null}
             </div>
           </div>
         ) : null}
