@@ -19,5 +19,12 @@
     "start": "/image/musk.jpg",
     "loading": "/image/musk_moving.gif",
     "result": "/image/musk_result.jpg"
+  },
+  {
+    "theme": "powell",
+    "name": "DJ파월",
+    "start": "/image/powell_start.jpg",
+    "loading": "/image/powell_moving.gif",
+    "result": "/image/powell_result.jpg"
   }
 ]

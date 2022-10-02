@@ -46,6 +46,8 @@ const CoinSelect = () => {
       logEvent(analytics, 'RD_Change_Doge');
     } else if (value == 'musk') {
       logEvent(analytics, 'RD_Change_Musk');
+    } else if (value == 'powell') {
+      logEvent(analytics, 'RD_Change_Powell');
     }
   };
 
@@ -69,7 +71,7 @@ const CoinSelect = () => {
           getChangeRate((res.data[0].signed_change_rate * 100).toFixed(2));
         });
       await axios
-        .post('http://127.0.0.1:5000/', {
+        .post('http://127.0.0.1:8000/rsi', {
           coin: selected.market,
         })
         .then((res) => {
@@ -174,7 +176,12 @@ const CoinSelect = () => {
         )}
       </div>
       <div className="w-full font-2">
-        {tradeChange && tradePrice && changeRate && coinName ? (
+        {rsiPercent &&
+        rsiText &&
+        tradeChange &&
+        tradePrice &&
+        changeRate &&
+        coinName ? (
           <div className="w-full mx-auto my-auto text-center">
             <h1 className="text-4xl font-gmarket font-semibold">{coinName}</h1>
 
@@ -241,6 +248,7 @@ const CoinSelect = () => {
           <option value="parrot">앵무새</option>
           <option value="doge">도지</option>
           <option value="musk">일론 머스크</option>
+          <option value="powell">DJ파월</option>
         </select>
       </div>
     </div>

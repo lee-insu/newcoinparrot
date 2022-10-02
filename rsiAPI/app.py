@@ -10,7 +10,7 @@ import pandas as pd
 app = Flask(__name__)
 CORS(app)
 
-@app.route('/',methods=["POST"])
+@app.route('/rsi',methods=["POST"])
 
 def index():
     url = "https://api.upbit.com/v1/candles/days?"+str(14)
@@ -47,10 +47,6 @@ def rsi_calc(ohlc: pd.DataFrame, period: int):
     RS = _gain / _loss
     return pd.Series(100-(100/(1+RS)), name="RSI")
 
- 
- 
- 
- 
  
 if __name__ == '__main__':
     app.run(host='localhost', port=8080,debug=True)
