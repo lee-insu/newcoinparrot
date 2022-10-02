@@ -50,6 +50,8 @@ const CoinSelect = () => {
   };
 
   const playAction = () => {
+    rsiPercent ? getRsiPercent('') : getRsiPercent('');
+    rsiText ? getRsiText('') : getRsiText('');
     setAdCount(adCount + 1);
     result ? handleResult(false) : handleResult(false);
     handleStart(false);
@@ -73,8 +75,7 @@ const CoinSelect = () => {
         .then((res) => {
           getRsiPercent(res.data[0]);
           getRsiText(res.data[1]);
-        })
-        .then((err) => console.log(err));
+        });
 
       handleLoading(false);
       handleResult(true);
@@ -205,7 +206,9 @@ const CoinSelect = () => {
               <p className="text-gray-500 text-sm">
                 14일 기준 RSI (과매수,과매도) 지수
               </p>
-              <p className="text-black-800 text-2xl py-1">{rsiPercent}</p>
+              <p className="text-black-800 text-2xl py-1">
+                {rsiPercent ? rsiPercent : null}
+              </p>
               {rsiText && rsiText == '중립' ? (
                 <p className="text-black-400">뜨겁지도 차갑지도 않다.</p>
               ) : rsiText == '과매도' ? (
