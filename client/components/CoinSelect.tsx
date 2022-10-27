@@ -217,11 +217,11 @@ const CoinSelect = () => {
                 {rsiPercent ? rsiPercent : null}
               </p>
               {rsiText && rsiText == '중립' ? (
-                <p className="text-black-400">뜨겁지도 차갑지도 않다.</p>
+                <p className="text-black-400">중립</p>
               ) : rsiText == '과매도' ? (
-                <p className="text-blue-400">개같이 파는 중!!</p>
+                <p className="text-blue-400">과매도</p>
               ) : rsiText == '과매수' ? (
-                <p className="text-red-400">개같이 사는 중!!</p>
+                <p className="text-red-400">과매수</p>
               ) : null}
             </div>
           </div>
