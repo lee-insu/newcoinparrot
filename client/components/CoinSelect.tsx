@@ -61,7 +61,6 @@ const CoinSelect = () => {
     getCoinName('');
     setTimeout(async () => {
       const selected = krwMarket[Math.floor(Math.random() * krwMarket.length)];
-
       await axios
         .get(`https://api.upbit.com/v1/ticker?markets=${selected.market}`)
         .then((res) => {
@@ -71,13 +70,14 @@ const CoinSelect = () => {
           getChangeRate((res.data[0].signed_change_rate * 100).toFixed(2));
         });
       await axios
-        .post('http://127.0.0.1:8000/rsi', {
+        .post('http://127.0.0.1:5000/rsi', {
           coin: selected.market,
         })
         .then((res) => {
           getRsiPercent(res.data[0]);
           getRsiText(res.data[1]);
-        });
+        })
+        .catch((err) => console.log(`err: ${err}`));
 
       handleLoading(false);
       handleResult(true);
@@ -86,11 +86,6 @@ const CoinSelect = () => {
   };
 
   useEffect(() => {
-    // if (result) {
-    //   if (adCount % 3 === 0) {
-    //     router.push('/ad');
-    //   }
-    // }
     return () => {
       axios.get('https://api.upbit.com/v1/market/all').then((res) => {
         const market = res.data.map((li: any) => li);
