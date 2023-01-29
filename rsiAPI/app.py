@@ -28,7 +28,7 @@ def index():
 def rsi_check(nrsi):
         if nrsi <= 30:
             return '과매도'
-        elif nrsi >= 30 <=70:
+        elif nrsi >= 30 and nrsi <=70:
             return '중립'
         elif nrsi >=70:
             return '과매수'
