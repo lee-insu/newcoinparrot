@@ -4,8 +4,8 @@ import { logEvent } from 'firebase/analytics';
 
 const Nav = () => {
   const DemandText = () => {
-    logEvent(analytics, 'Demand_Coin_Information');
-    alert('코인 한 줄 요약 정보가 잠시 보강중이에요🥹');
+    logEvent(analytics, 'Demand_Coin_Week_earningRate');
+    alert('주간 수익률 차트가 잠시 보강중이에요🥹');
   };
 
   return (
@@ -20,7 +20,7 @@ const Nav = () => {
           onClick={DemandText}
           className="cursor-pointer font-gmarket text-lg text-gray-700 p-3"
         >
-          코인별 한 줄 요약
+          코인 주간 수익률
         </div>
       </div>
     </nav>
